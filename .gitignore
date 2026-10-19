@@ -1,0 +1,25 @@
+# Local environment and credentials
+.venv/
+venv/
+.env
+.env.*
+*cookies*.txt
+*.pem
+*.key
+
+# Downloaded media and temporary files
+downloads/*
+!downloads/.gitkeep
+*.part
+*.ytdl
+*.log
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Built desktop app and generated icon variants
+*.app/
+native/ReelSips.iconset/
+
+# Login info exported from the browser
+.cookies/

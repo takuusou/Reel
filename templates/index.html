@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reel · 本地媒体下载台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="grain"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+        <circle cx="16" cy="16" r="3.2" fill="currentColor"/>
+        <circle cx="16" cy="7" r="2.1" fill="currentColor"/>
+        <circle cx="16" cy="25" r="2.1" fill="currentColor"/>
+        <circle cx="7" cy="16" r="2.1" fill="currentColor"/>
+        <circle cx="25" cy="16" r="2.1" fill="currentColor"/>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-name">Reel</span>
+        <span class="brand-sub">本地媒体下载台</span>
+      </div>
+    </div>
+    <div class="status" id="status">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">检查中…</span>
+    </div>
+  </header>
+
+  <main class="stage">
+    <section class="hero reveal" style="--d:0">
+      <h1 class="hero-title">粘贴链接，开始下载</h1>
+      <p class="hero-hint">Instagram · YouTube · TikTok · 哔哩哔哩 · 视频 MP4 / 音频 MP3 / 图片</p>
+    </section>
+
+    <div class="columns">
+      <div class="col-left reveal" style="--d:1">
+        <div class="input-wrap">
+          <input id="urlInput" class="url-input" type="text"
+                 placeholder="在此粘贴链接…" autocomplete="off" spellcheck="false">
+          <button id="clearBtn" class="clear-btn" title="清空" aria-label="清空">×</button>
+        </div>
+        <div id="parseHint" class="parse-hint"></div>
+
+        <section id="preview" class="preview hidden">
+          <div class="preview-thumb">
+            <img id="thumbImg" alt="" referrerpolicy="no-referrer">
+            <span id="durBadge" class="dur-badge"></span>
+          </div>
+          <div class="preview-meta">
+            <div id="vidTitle" class="vid-title"></div>
+            <div id="vidUploader" class="vid-uploader"></div>
+          </div>
+        </section>
+
+        <section class="controls">
+          <div class="control-row">
+            <span class="control-label">格式</span>
+            <div class="segmented" id="fmtSeg">
+              <button class="seg active" data-fmt="mp4" aria-pressed="true">视频 MP4</button>
+              <button class="seg" data-fmt="mp3" aria-pressed="false">音频 MP3</button>
+              <button class="seg" data-fmt="image" aria-pressed="false">图片</button>
+            </div>
+          </div>
+          <div class="control-row" id="qualityRow">
+            <span class="control-label">画质</span>
+            <div class="segmented" id="qSeg">
+              <button class="seg" data-q="best" aria-pressed="false">最高</button>
+              <button class="seg active" data-q="1080" aria-pressed="true">1080p</button>
+              <button class="seg" data-q="720" aria-pressed="false">720p</button>
+            </div>
+          </div>
+          <button id="downloadBtn" class="download-btn">
+            <span class="btn-label" data-role="download-label">开始下载</span>
+          </button>
+        </section>
+
+        <section id="jobsSection" class="jobs hidden">
+          <h2 class="section-head">进行中</h2>
+          <div id="jobsList" class="jobs-list"></div>
+        </section>
+      </div>
+
+      <aside class="col-right reveal" style="--d:2">
+        <div class="history-head">
+          <h2 class="section-head">已下载</h2>
+          <button id="openFolderBtn" class="ghost-btn">打开文件夹</button>
+        </div>
+        <div id="historyList" class="history-list">
+          <div class="empty" id="historyEmpty">还没有下载记录</div>
+        </div>
+        <div id="historyPager" class="history-pager hidden">
+          <button class="ghost-btn pager-btn" id="historyPrev">&#8592;</button>
+          <span id="historyPageInfo" class="pager-info"></span>
+          <button class="ghost-btn pager-btn" id="historyNext">&#8594;</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-line">Reel · 本地运行 · yt-dlp / gallery-dl 驱动 · v{{ version }}</div>
+    <div class="foot-author">TAKUUSOU制作</div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
