@@ -1,7 +1,7 @@
 # Reel · 本地媒体下载台
 
 粘贴链接,在自己的电脑上下载 Instagram、YouTube、TikTok、哔哩哔哩的视频、音频或图片。当前正式版 `v2.4.0`,macOS 本地浏览器版。
-
+<img width="3824" height="1822" alt="d7425837-a57f-4d99-841a-af26389afc65" src="https://github.com/user-attachments/assets/d1eb3e5d-3480-4a02-85f1-6381a9714f1a" />
 使用方法见 [使用说明.md](使用说明.md)。
 
 ## 设计原则
