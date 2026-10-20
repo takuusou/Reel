@@ -4,6 +4,8 @@
 <img width="3824" height="1822" alt="d7425837-a57f-4d99-841a-af26389afc65" src="https://github.com/user-attachments/assets/d1eb3e5d-3480-4a02-85f1-6381a9714f1a" />
 使用方法见 [使用说明.md](使用说明.md)。
 
+项目介绍与完整说明见 [Notion · Reel](https://wide-nest-95c.notion.site/Reel-3fe15452b844818a9576ee9151faad56)。
+
 ## 设计原则
 
 平台兼容交给持续维护的下载器,Reel 只做一层薄壳:不自己抓网页、不自己解密、没有回退链。
